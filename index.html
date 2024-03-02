@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FaceTime-in-Electron</title>
+    <link rel="icon" type="image/x-icon" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8200ff">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta property="og:title" content="FaceTime-in-Electron">
+    <meta property="og:description" content="You shouldn't be able to see this.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .ftlink-container {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: rgb(32, 32, 32);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 300px;
+        }
+        
+        .ftlink-container input[type="text"]{
+            font-family: 'JetBrains Mono', monospace;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #222222;
+            color: white;
+        }
+
+        .ftlink-container input[type="password"]{
+            font-family: 'JetBrains Mono', monospace;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #222222;
+            color: white;
+        }
+        
+        .ftlink-container input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+        
+        .ftlink-container button {
+            font-family: 'JetBrains Mono', monospace;
+            width: 100%;
+            padding: 10px;
+            background-color: #0075eb;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function startFT() {
+            var link = document.getElementById("link").value;
+            if (link.startsWith("https://facetime.apple.com/join")) {
+                window.open(link);
+            } else {
+                document.getElementById("error-message").textContent = "Invalid FaceTime link";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="ftlink-container">
+        <h2 style="margin-bottom: 10px; margin-top: 10px;">FaceTime-in-Electron</h2>
+        <div class="error-message" id="error-message"></div>
+        <input type="text" id="link" placeholder="FaceTime Link">
+        <button type="submit" onclick="startFT(event)" id="startFaceTime">Open FaceTime</button>
+    </div>
+</body>
+</html>

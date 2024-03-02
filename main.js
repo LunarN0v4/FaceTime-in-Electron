@@ -5,7 +5,7 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
-        icon: path.join(__dirname, 'icon.png'),
+        icon: path.join(__dirname, 'icon.ico'),
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true
@@ -17,7 +17,7 @@ const createWindow = () => {
 app.whenReady().then(() => {
     createWindow()
     app.on('browser-window-created', (event, window) => {
-        window.setIcon(path.join(__dirname, 'icon.png'));
+        window.setIcon(path.join(__dirname, 'icon.ico'));
         window.autoHideMenuBar = true;
     });
 })
